@@ -7,21 +7,27 @@ import { Helmet } from "react-helmet-async";
  * @returns {JSX.Element} - The Helmet component with SEO tags
  */
 const useSEO = ({
-  title,
-  description,
+  title = "PU Teacher Portal – Presidency University, Dhaka",
+  description = "Manage faculty schedules, academics, and updates at PU.",
   keywords,
-  canonicalUrl,
+  canonicalUrl = "https://puteacher.netlify.app",
   ogType = "website",
-  ogImage,
+  ogImage = "https://example.com/default-og-image.jpg",
   twitterHandle,
   additionalMetaTags = {},
   additionalLinkTags = {},
 }) => {
-  const defaultOgImage = "https://example.com/default-og-image.jpg"; // Fallback for Open Graph Image
-
   useEffect(() => {
-    // Example of dynamic effect if required in future
+    // Future dynamic updates can be handled here
   }, []);
+
+  const structuredData = {
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: canonicalUrl,
+  };
 
   return (
     <Helmet>
@@ -29,6 +35,7 @@ const useSEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content="index, follow" />
 
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
@@ -38,7 +45,8 @@ const useSEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-      <meta property="og:image" content={ogImage || defaultOgImage} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="Presidency University" />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -59,15 +67,7 @@ const useSEO = ({
 
       {/* Structured Data */}
       <script type="application/ld+json">
-        {`
-          {
-            "@context": "http://schema.org",
-            "@type": "WebPage",
-            "name": "${title}",
-            "description": "${description}",
-            "url": "${canonicalUrl}"
-          }
-        `}
+        {JSON.stringify(structuredData)}
       </script>
 
       {/* Mobile optimization */}
@@ -77,3 +77,4 @@ const useSEO = ({
 };
 
 export default useSEO;
+
