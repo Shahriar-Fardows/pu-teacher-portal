@@ -12,7 +12,7 @@ const useSEO = ({
   keywords,
   canonicalUrl = "https://puteacher.netlify.app",
   ogType = "website",
-  ogImage = "../assets/Images/favicon.png",
+  ogImage = "../assets/Images/logo.png",
   twitterHandle,
   additionalMetaTags = {},
   additionalLinkTags = {},
