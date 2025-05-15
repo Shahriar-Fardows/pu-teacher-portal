@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta name="description" content="Official PU Teacher Portal for Presidency University, Dhaka. Manage faculty schedules, course plans, and internal communication." />
+    <title>PU Teacher Portal – Presidency University, Dhaka</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "name": "Presidency University",
+  "url": "https://puteacher.netlify.app",
+  "department": {
+    "@type": "EducationalOrganization",
+    "name": "PU Teacher Portal",
+    "url": "https://puteacher.netlify.app",
+    "description": "Faculty management portal for teachers at Presidency University, Dhaka."
+  }
+}
+</script>
+
   </body>
 </html>
